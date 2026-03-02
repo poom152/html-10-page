@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำสิ่งมีชีวิตใกล้ตัว - ยุงลาย (Aedes)</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS ส่วนการตกแต่ง (ปรับปรุงใหม่) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            /* เปลี่ยนพื้นหลังเป็นโทนเย็น/เทา ให้ความรู้สึกระมัดระวัง */
+            background: linear-gradient(135deg, #e0e0e0 0%, #bdc3c7 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .animal-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .animal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        /* ส่วนของรูปภาพ */
+        .animal-image {
+            flex: 1;
+            min-width: 45%; /* ปรับความกว้างรูปภาพเล็กน้อย */
+            position: relative;
+            background-color: #333; /* พื้นหลังดำหลังรูป เผื่อรูปโหลดช้า */
+        }
+
+        .animal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ให้รูปคลุมพื้นที่ทั้งหมด */
+            display: block;
+        }
+
+        /* ส่วนของเนื้อหา */
+        .animal-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .badge {
+            display: inline-block;
+            /* เปลี่ยนสี Badge เป็นสีแดง/ส้ม เพื่อแจ้งเตือน */
+            background: #ffcccc;
+            color: #c0392b;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            width: fit-content;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem; /* ขยายขนาดหัวข้อ */
+            margin-bottom: 10px;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+        
+        h2.scientific-name {
+            font-size: 1rem;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .description {
+            color: #57606f;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-weight: 300;
+            font-size: 1rem;
+        }
+
+        /* ตารางข้อมูลเล็กๆ */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.75rem;
+            color: #95a5a6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .info-item span {
+            color: #2d3436;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* ปุ่มกด */
+        .btn {
+            /* เปลี่ยนสีปุ่มเป็นโทนเข้ม/แดง เพื่อความลึกลับหรือเตือนภัย */
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background: #c0392b; /* เปลี่ยนเป็นสีแดงเมื่อ Hover */
+            box-shadow: 0 10px 20px rgba(192, 57, 43, 0.3);
+        }
+
+        /* Responsive: ปรับแต่งหน้าจอสำหรับมือถือ */
+        @media (max-width: 768px) {
+            .animal-card {
+                flex-direction: column;
+            }
+            .animal-image {
+                height: 300px; /* เพิ่มความสูงรูปบนมือถือ */
+            }
+            .animal-content {
+                padding: 30px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr; /* ปรับตารางเป็นแถวเดียวบนมือถือ */
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animal-card">
+        <div class="animal-image">
+            <img src="https://langgam.id/wp-content/uploads/2019/03/nyamuk.jpg" alt="ยุงลาย (Aedes mosquito)">
+        </div>
+
+        <div class="animal-content">
+            <div class="badge">พาหะนำโรคสำคัญ</div>
+            <h1>ยุงลาย</h1>
+            <h2 class="scientific-name">(Aedes aegypti / Aedes albopictus)</h2>
+            
+            <p class="description">
+                ยุงลาย เป็นแมว... เอ้ย! เป็นแมลงจำพวกยุงที่พบได้บ่อยในแถบเขตร้อน 
+                มีลักษณะเด่นคือลวดลายสีขาวสลับดำตามลำตัวและขา 
+                แม้ตัวจะเล็กแต่พิษสงร้ายกาจ เพราะยุงลายตัวเมียเป็นพาหะหลัก
+                ที่นำโรคร้ายมาสู่มนุษย์ โดยเฉพาะไข้เลือดออก ชิคุนกุนยา และไข้ซิกา
+            </p>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>ช่วงเวลาออกหากิน</label>
+                    <span>กลางวัน (เช้าตรู่/บ่ายคล้อย)</span>
+                </div>
+                <div class="info-item">
+                    <label>อายุขัยเฉลี่ย (ตัวเมีย)</label>
+                    <span>2 - 4 สัปดาห์</span>
+                </div>
+                <div class="info-item">
+                    <label>แหล่งเพาะพันธุ์</label>
+                    <span>น้ำนิ่งใส (ในภาชนะขังน้ำ)</span>
+                </div>
+                <div class="info-item">
+                    <label>โรคนำพาหลัก</label>
+                    <span>ไข้เลือดออก, ชิคุนกุนยา, ซิกา</span>
+                </div>
+            </div>
+
+            <a href="https://ddc.moph.go.th/disease_detail.php?d=44" target="_blank" class="btn">วิธีป้องกันและกำจัดยุงลาย</a>
+        </div>
+    </div>
+
+</body>
+</html>
