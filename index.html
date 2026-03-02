@@ -92,6 +92,10 @@
             padding: 40px;
             background: #eee;
         }
+ a {
+    text-decoration: none; /* เอาเส้นใต้ออก */
+    color: inherit;        /* (ตัวเลือกเสริม) ให้สีลิงก์กลืนไปกับข้อความปกติ */
+  }
     </style>
 </head>
 <body>
@@ -148,14 +152,13 @@
             </div>
         </div>
 
-        <div class="animal-card">
-            <img src="https://www.happinessbangsaotong.com/wp-content/uploads/2021/11/pigeon-ga470e9775_1280-3.jpg" alt="นกพิราบ" class="animal-image">
-            <a href="pigeon.html" class="btn">นกพิราบ</a>
+        <a href="pigeon.html" class="btn"> <div class="animal-card">
+            <img src="https://www.happinessbangsaotong.com/wp-content/uploads/2021/11/pigeon-ga470e9775_1280-3.jpg" alt="นกพิราบ" class="animal-image"> 
             <div class="animal-info">
                 <span class="tag">พบบ่อยที่: ตึกทุกคณะ</span>
-                <h3>นกพิราบ</h3>
+               <h3>นกพิราบ</h3>
             </div>
-        </div>
+        </div></a> 
 
         <div class="animal-card">
             <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80" alt="น้องหมา" class="animal-image">
