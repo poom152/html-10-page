@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำสิ่งมีชีวิตน่ารู้ - กระรอก (Squirrel)</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS ส่วนการตกแต่ง (ปรับปรุงใหม่สำหรับกระรอก) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            /* เปลี่ยนพื้นหลังเป็นโทนสีธรรมชาติ เขียวอ่อน-ครีม */
+            background: linear-gradient(135deg, #f0fff4 0%, #e6dfd1 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .animal-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .animal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        /* ส่วนของรูปภาพ */
+        .animal-image {
+            flex: 1;
+            min-width: 40%;
+            position: relative;
+            background-color: #f5f5f5; /* พื้นหลังสว่างเผื่อรูปโหลดช้า */
+        }
+
+        .animal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ส่วนของเนื้อหา */
+        .animal-content {
+            flex: 1.2;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .badge {
+            display: inline-block;
+            /* เปลี่ยนสี Badge เป็นสีส้ม/น้ำตาล เพื่อสื่อถึงกระรอก */
+            background: #ffe0b2;
+            color: #bf360c;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            width: fit-content;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            color: #5d4037; /* สีน้ำตาลเข้ม */
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+        
+        h2.scientific-name {
+            font-size: 1rem;
+            color: #8d6e63;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .description {
+            color: #6d4c41;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-weight: 300;
+            font-size: 1rem;
+        }
+
+        /* ตารางข้อมูลเล็กๆ */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.75rem;
+            color: #a1887f;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .info-item span {
+            color: #3e2723;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        /* ปุ่มกด */
+        .btn {
+            /* เปลี่ยนสีปุ่มเป็นโทนสีน้ำตาล/ส้ม */
+            background: #8d6e63;
+            color: white;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background: #a1887f; /* สีน้ำตาลอ่อนลงเมื่อ Hover */
+            box-shadow: 0 10px 20px rgba(141, 110, 99, 0.3);
+        }
+
+        /* Responsive: ปรับแต่งหน้าจอสำหรับมือถือ */
+        @media (max-width: 768px) {
+            .animal-card {
+                flex-direction: column;
+            }
+            .animal-image {
+                height: 250px;
+            }
+            .animal-content {
+                padding: 30px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animal-card">
+        <div class="animal-image">
+            <img src="กระรอก2.jpg" alt="กระรอกน้อยน่ารัก (Cute squirrel)">
+        </div>
+
+        <div class="animal-content">
+            <div class="badge">Rodent</div>
+            <h1>กระรอก</h1>
+            <h2 class="scientific-name">(Family Sciuridae)</h2>
+            
+            <p class="description">
+                กระรอก เป็นสัตว์เลี้ยงลูกด้วยนมในตระกูลสัตว์ฟันแทะ (Rodent) 
+                มีขนาดตัวเล็กถึงปานกลาง รูปร่างเพรียว และมีหางเป็นพวงฟูสวยงาม 
+                มีนิสัยคล่องแคล่ว ว่องไว และมักพบเห็นได้ตามต้นไม้ในสวนสาธารณะหรือป่า 
+                เป็นสัตว์ที่ขึ้นชื่อเรื่องความซุกซนและการสะสมอาหารไว้ตามที่ต่างๆ
+            </p>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>อาหารหลัก</label>
+                    <span>ลูกไม้, ถั่ว, ผลไม้, แมลงขนาดเล็ก</span>
+                </div>
+                <div class="info-item">
+                    <label>อายุขัยเฉลี่ย (ในธรรมชาติ)</label>
+                    <span>3 - 6 ปี (ขึ้นอยู่กับชนิด)</span>
+                </div>
+                <div class="info-item">
+                    <label>ถิ่นที่อยู่อาศัย</label>
+                    <span>บนต้นไม้ (ส่วนใหญ่), โพรงไม้</span>
+                </div>
+                <div class="info-item">
+                    <label>พฤติกรรมเด่น</label>
+                    <span>ปืนป่ายเก่ง, ฝังกลบอาหาร</span>
+                </div>
+            </div>
+
+            <a href="index.html" target="_blank" class="btn">กลับไปหน้าแรก</a>
+        </div>
+    </div>
+
+</body>
+</html>
