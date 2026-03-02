@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NU Wildlife - สัตว์น่ารักใน มอนอ</title>
+    <style>
+        /* CSS Custom Properties */
+        :root {
+            --primary-color: #f39c12; /* สีส้มมอนอ */
+            --secondary-color: #27ae60; /* สีเขียวธรรมชาติ */
+            --dark-text: #2c3e50;
+            --light-bg: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { font-weight: 300; }
+
+        /* Container & Grid */
+        .container {
+            max-width: 1200px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card Style */
+        .animal-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .animal-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .animal-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .animal-info {
+            padding: 20px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .animal-info h3 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Wildlife in Naresuan University</h1>
+    <p>รวมภาพและข้อมูลสัตว์ที่พบเห็นได้บ่อยในรั้วเทาทอง</p>
+</header>
+
+<div class="container">
+    <div class="grid">
+        <div class="animal-card">
+            <img src="https://images.unsplash.com/photo-1536511132770-e5066907f90c?auto=format&fit=crop&q=80" alt="นกยูง" class="animal-image">
+            <div class="animal-info">
+                <span class="tag">พบบ่อยที่: ลานสมเด็จฯ</span>
+                <h3>นกยูง (Peacock)</h3>
+                <p>ถือเป็นซุปตาร์ของ มอนอ มักจะออกมาเดินโชว์ตัวสวยๆ ให้เห็นแถวศาลสมเด็จพระนเรศวรฯ</p>
+            </div>
+        </div>
+
+        <div class="animal-card">
+            <img src="https://images.unsplash.com/photo-1507332132637-7941f17fcac7?auto=format&fit=crop&q=80" alt="กระรอก" class="animal-image">
+            <div class="animal-info">
+                <span class="tag">พบบ่อยที่: หอสมุด / คณะเกษตร</span>
+                <h3>กระรอกน้อย (Squirrel)</h3>
+                <p>เจ้าตัวจิ๋วที่วิ่งวุ่นตามต้นไม้ มักจะออกมาทักทายตอนเช้าและช่วงเย็นตามสวนหย่อม</p>
+            </div>
+        </div>
+
+        <div class="animal-card">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80" alt="น้องหมา" class="animal-image">
+            <div class="animal-info">
+                <span class="tag">พบบ่อยที่: ทุกคณะ</span>
+                <h3>เจ้าตูบประจำถิ่น</h3>
+                <p>สุนัขใน มอนอ มีความฉลาดและเป็นมิตร ส่วนใหญ่มักมีชื่อเรียกประจำคณะเป็นของตัวเอง</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 NU Wildlife Guide - สร้างสรรค์เพื่อชาว มอนอ</p>
+</footer>
+
+</body>
+</html>
