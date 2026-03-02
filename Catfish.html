@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แนะนำสิ่งมีชีวิตในมหาวิทยาลัยนเรศวร - ยุงลาย (Aedes)</title>
+    <title>แนะนำสิ่งมีชีวิตในมหาวิทยาลัยนเรศวร - ปลาดุก (Catfish)</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CSS ส่วนการตกแต่ง (ปรับปรุงใหม่) --- */
+        /* --- CSS ส่วนการตกแต่ง (ปรับปรุงใหม่สำหรับปลาดุก) --- */
         * {
             margin: 0;
             padding: 0;
@@ -17,8 +17,8 @@
 
         body {
             font-family: 'Kanit', sans-serif;
-            /* เปลี่ยนพื้นหลังเป็นโทนเย็น/เทา ให้ความรู้สึกระมัดระวัง */
-            background: linear-gradient(135deg, #e0e0e0 0%, #bdc3c7 100%);
+            /* เปลี่ยนพื้นหลังเป็นโทนสีน้ำ/โคลน ฟ้าหม่น-เทา */
+            background: linear-gradient(135deg, #e0f7fa 0%, #b0bec5 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -29,38 +29,37 @@
         .animal-card {
             background: #ffffff;
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
             width: 100%;
             max-width: 850px;
             display: flex;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .animal-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
 
         /* ส่วนของรูปภาพ */
         .animal-image {
             flex: 1;
-            min-width: 45%; /* ปรับความกว้างรูปภาพเล็กน้อย */
+            min-width: 40%;
             position: relative;
-            background-color: #333; /* พื้นหลังดำหลังรูป เผื่อรูปโหลดช้า */
+            background-color: #f5f5f5; /* พื้นหลังสว่างเผื่อรูปโหลดช้า */
         }
 
         .animal-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ให้รูปคลุมพื้นที่ทั้งหมด */
+            object-fit: cover;
             display: block;
         }
 
         /* ส่วนของเนื้อหา */
         .animal-content {
-            flex: 1;
+            flex: 1.2;
             padding: 40px;
             display: flex;
             flex-direction: column;
@@ -69,9 +68,9 @@
 
         .badge {
             display: inline-block;
-            /* เปลี่ยนสี Badge เป็นสีแดง/ส้ม เพื่อแจ้งเตือน */
-            background: #ffcccc;
-            color: #c0392b;
+            /* เปลี่ยนสี Badge เป็นสีฟ้า/เทา เพื่อสื่อถึงปลาน้ำจืด */
+            background: #cfd8dc;
+            color: #263238;
             padding: 4px 12px;
             border-radius: 50px;
             font-size: 0.8rem;
@@ -82,8 +81,8 @@
         }
 
         h1 {
-            color: #2c3e50;
-            font-size: 2.5rem; /* ขยายขนาดหัวข้อ */
+            color: #37474f; /* สีเทาเข้มอมน้ำเงิน */
+            font-size: 2.5rem;
             margin-bottom: 10px;
             line-height: 1.2;
             font-weight: 600;
@@ -91,14 +90,14 @@
         
         h2.scientific-name {
             font-size: 1rem;
-            color: #7f8c8d;
+            color: #78909c;
             font-style: italic;
             margin-bottom: 20px;
             font-weight: 300;
         }
 
         .description {
-            color: #57606f;
+            color: #546e7a;
             line-height: 1.8;
             margin-bottom: 25px;
             font-weight: 300;
@@ -111,29 +110,29 @@
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             padding-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #e0e0e0;
             margin-bottom: 30px;
         }
 
         .info-item label {
             display: block;
             font-size: 0.75rem;
-            color: #95a5a6;
+            color: #90a4ae;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 3px;
         }
 
         .info-item span {
-            color: #2d3436;
+            color: #263238;
             font-weight: 600;
             font-size: 1.05rem;
         }
 
         /* ปุ่มกด */
         .btn {
-            /* เปลี่ยนสีปุ่มเป็นโทนเข้ม/แดง เพื่อความลึกลับหรือเตือนภัย */
-            background: #2c3e50;
+            /* เปลี่ยนสีปุ่มเป็นโทนสีฟ้าเข้ม/เทา */
+            background: #607d8b;
             color: white;
             text-align: center;
             padding: 15px 30px;
@@ -145,8 +144,8 @@
         }
 
         .btn:hover {
-            background: #c0392b; /* เปลี่ยนเป็นสีแดงเมื่อ Hover */
-            box-shadow: 0 10px 20px rgba(192, 57, 43, 0.3);
+            background: #78909c; /* สีอ่อนลงเมื่อ Hover */
+            box-shadow: 0 10px 20px rgba(96, 125, 139, 0.3);
         }
 
         /* Responsive: ปรับแต่งหน้าจอสำหรับมือถือ */
@@ -155,7 +154,7 @@
                 flex-direction: column;
             }
             .animal-image {
-                height: 300px; /* เพิ่มความสูงรูปบนมือถือ */
+                height: 250px;
             }
             .animal-content {
                 padding: 30px;
@@ -164,7 +163,7 @@
                 font-size: 2rem;
             }
             .info-grid {
-                grid-template-columns: 1fr; /* ปรับตารางเป็นแถวเดียวบนมือถือ */
+                grid-template-columns: 1fr;
                 gap: 15px;
             }
         }
@@ -174,33 +173,32 @@
 
     <div class="animal-card">
         <div class="animal-image">
-            <img src="ยุง3.png" alt="ยุงลาย (Aedes mosquito)">
+            <img src="ปลาดุก3.jpg" alt="ปลาดุก (Catfish)">
         </div>
 
         <div class="animal-content">
-            <div class="badge">Mosquito</div>
-            <h1>ยุงลาย</h1>
-            <h2 class="scientific-name">(Aedes aegypti / Aedes albopictus)</h2>
+            <div class="badge">Freshwater fish</div>
+            <h1>ปลาดุก</h1>
+            <h2 class="scientific-name">(Order Siluriformes)</h2>
             
             <p class="description">
-                ยุงลาย เป็นแมลงจำพวกยุงที่พบได้บ่อยในแถบเขตร้อน 
-                มีลักษณะเด่นคือลวดลายสีขาวสลับดำตามลำตัวและขา 
-                แม้ตัวจะเล็กแต่พิษสงร้ายกาจ เพราะยุงลายตัวเมียเป็นพาหะหลัก
-                ที่นำโรคร้ายมาสู่มนุษย์โดยเฉพาะไข้เลือดออก ชิคุนกุนยาและไข้ซิกา
+                ปลาดุก เป็นปลาน้ำจืดที่ไม่มีเกล็ด มีลำตัวเรียวยาวและค่อนข้างแบน 
+                จุดเด่นคือมีหัวที่แบนกว้างและมีหนวดหลายคู่รอบปากเพื่อใช้รับสัมผัสในการหาอาหาร 
+                พวกมันมีความอดทนสูงมาก สามารถอาศัยในน้ำที่มีออกซิเจนต่ำหรือซ่อนตัวตามโคลนตมได้เป็นอย่างดี
             </p>
 
             <div class="info-grid">
                 <div class="info-item">
                     <label>ระดับพลังงาน</label>
-                    <span>สูง</span>
+                    <span>ต่ำ</span>
                 </div>
                 <div class="info-item">
                     <label>อายุขัยเฉลี่ย</label>
-                    <span>1-3 เดือน</span>
+                    <span>5-10 ปี</span>
                 </div>
                 <div class="info-item">
                     <label>น้ำหนัก</label>
-                    <span>ประมาณ 2-2.5 มิลลิกรัม</span>
+                    <span>ประมาณ 450-600 กิโลกรัม</span>
                 </div>
                 <div class="info-item">
                     <label>ความเข้ากันได้</label>
@@ -209,7 +207,6 @@
             </div>
 
             <a href="index.html" target="_blank" class="btn">กลับไปหน้าแรก</a>
-        </div>
     </div>
 
 </body>
