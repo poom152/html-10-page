@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำสิ่งมีชีวิตในมหาวิทยาลัยนเรศวร - นกพิราบ (pigeon)</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS ส่วนการตกแต่ง --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .animal-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .animal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ส่วนของรูปภาพ */
+        .animal-image {
+            flex: 1;
+            min-width: 40%;
+            position: relative;
+        }
+
+        .animal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ส่วนของเนื้อหา */
+        .animal-content {
+            flex: 1.2;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffeaa7;
+            color: #d35400;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+
+        h1 {
+            color: #2d3436;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .description {
+            color: #636e72;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        /* ตารางข้อมูลเล็กๆ */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.8rem;
+            color: #b2bec3;
+            text-transform: uppercase;
+        }
+
+        .info-item span {
+            color: #2d3436;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* ปุ่มกด */
+        .btn {
+            background: #6c5ce7;
+            color: white;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #a29bfe;
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+        }
+
+        /* Responsive: ปรับแต่งหน้าจอสำหรับมือถือ */
+        @media (max-width: 768px) {
+            .animal-card {
+                flex-direction: column;
+            }
+            .animal-image {
+                height: 250px;
+            }
+            .animal-content {
+                padding: 30px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animal-card">
+        <div class="animal-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Garden_lizard.jpg">
+        </div>
+
+        <div class="animal-content">
+            <div class="badge">pigeon</div>
+            <h1>นกพิราบ</h1>
+            <p class="description">
+                มีถิ่นกำเนิดแถบยุโรป แอฟริกาเหนือ และเอเชียตะวันตก<br>
+                มนุษย์นำมาเลี้ยงมากว่า 5,000 ปี<br>
+                เคยถูกใช้เป็น “นกสื่อสาร” ส่งจดหมายในสมัยโบราณ<br>
+                ปัจจุบันแพร่กระจายทั่วโลก โดยเฉพาะในเมืองใหญ่<br>
+            </p>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>ระดับพลังงาน</label>
+                    <span>ต่ำ</span>
+                </div>
+                <div class="info-item">
+                    <label>อายุขัยเฉลี่ย</label>
+                    <span>3-6 ปี</span>
+                </div>
+                <div class="info-item">
+                    <label>น้ำหนัก</label>
+                    <span>ประมาณ 250-400 กรัม</span>
+                </div>
+                <div class="info-item">
+                    <label>ความเข้ากันได้</label>
+                    <span>เข้ากันได้ดี อยู่เป็นฝูงได้ดีมาก (เป็นสัตว์สังคม)</span>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn">กลับไปหน้าแรก</a>
+        </div>
+    </div>
+
+</body>
+</html>
